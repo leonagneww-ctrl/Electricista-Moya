@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Electrónica Moya | Electricista de confianza en Algeciras</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "secondary-container": "#fdd400",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#7b2e12",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#bdc2ff",
+                    "on-secondary-container": "#6f5c00",
+                    "tertiary": "#380b00",
+                    "inverse-on-surface": "#f1f1f1",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#390c00",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#544600",
+                    "on-primary-container": "#8690ee",
+                    "secondary": "#705d00",
+                    "on-primary-fixed": "#000767",
+                    "primary-fixed": "#e0e0ff",
+                    "on-background": "#1a1c1c",
+                    "tertiary-container": "#5c1800",
+                    "background": "#f9f9f9",
+                    "inverse-surface": "#2f3131",
+                    "outline": "#767683",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#221b00",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface": "#f9f9f9",
+                    "secondary-fixed-dim": "#e9c400",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-container": "#e17c5a",
+                    "surface-tint": "#4c56af",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-container": "#1a237e",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary-fixed-variant": "#343d96",
+                    "tertiary-fixed": "#ffdbd0",
+                    "outline-variant": "#c6c5d4",
+                    "surface-dim": "#dadada",
+                    "secondary-fixed": "#ffe170",
+                    "primary": "#000666",
+                    "on-surface-variant": "#454652",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "margin": "32px",
+                    "md": "24px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Manrope"],
+                    "button-text": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-bold": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "display-xl": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "button-text": ["16px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Modal */
+        #modal-presupuesto { display: none; }
+        #modal-presupuesto.open { display: flex; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-20">
+
+<!-- MODAL PRESUPUESTO -->
+<div id="modal-presupuesto" class="fixed inset-0 z-[100] items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+  <div class="bg-white rounded-xl w-full max-w-lg p-8 relative shadow-2xl">
+    <button onclick="cerrarModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <h2 class="font-headline-lg text-headline-lg text-primary-container mb-sm">Pedir presupuesto</h2>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-md">Te contactamos en menos de 24 horas. Sin compromiso.</p>
+    <form onsubmit="enviarFormulario(event)" class="space-y-md">
+      <div>
+        <label class="font-label-bold text-label-bold text-on-surface uppercase block mb-xs">Nombre</label>
+        <input type="text" required placeholder="Tu nombre" class="w-full border-2 border-surface-variant rounded-lg px-md py-sm font-body-md focus:border-primary-container focus:outline-none transition-colors"/>
+      </div>
+      <div>
+        <label class="font-label-bold text-label-bold text-on-surface uppercase block mb-xs">Teléfono</label>
+        <input type="tel" required placeholder="600 000 000" class="w-full border-2 border-surface-variant rounded-lg px-md py-sm font-body-md focus:border-primary-container focus:outline-none transition-colors"/>
+      </div>
+      <div>
+        <label class="font-label-bold text-label-bold text-on-surface uppercase block mb-xs">¿Qué necesitas?</label>
+        <textarea rows="3" required placeholder="Describe brevemente el trabajo..." class="w-full border-2 border-surface-variant rounded-lg px-md py-sm font-body-md focus:border-primary-container focus:outline-none transition-colors resize-none"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-secondary-container text-primary-container font-button-text text-button-text py-sm px-md rounded-lg uppercase hover:bg-secondary-fixed transition-colors active:scale-95 duration-150">
+        Enviar solicitud
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white border-b border-surface-variant">
+  <div class="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto">
+    <div class="text-primary-container text-headline-md font-headline-md">Electrónica Moya</div>
+    <div class="hidden md:flex space-x-margin">
+      <a class="text-primary-container border-b-2 border-secondary-container pb-1 font-label-bold text-label-bold uppercase" href="#">Inicio</a>
+      <a class="text-on-surface-variant hover:text-primary-container transition-colors font-label-bold text-label-bold uppercase" href="#services">Servicios</a>
+      <a class="text-on-surface-variant hover:text-primary-container transition-colors font-label-bold text-label-bold uppercase" href="#reviews">Reseñas</a>
+      <a class="text-on-surface-variant hover:text-primary-container transition-colors font-label-bold text-label-bold uppercase" href="#ubicacion">Ubicación</a>
+      <a class="text-on-surface-variant hover:text-primary-container transition-colors font-label-bold text-label-bold uppercase" href="#contact">Contacto</a>
+    </div>
+    <button onclick="abrirModal()" class="bg-secondary-container text-primary-container font-button-text text-button-text py-sm px-md rounded border border-surface-variant uppercase hover:bg-secondary-fixed transition-colors active:scale-95 duration-150">
+      PEDIR PRESUPUESTO
+    </button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative bg-primary-container py-xl px-margin overflow-hidden flex items-center justify-center min-h-[819px]">
+  <div class="absolute inset-0 bg-gradient-to-r from-primary-container/90 to-primary-container/40 z-10"></div>
+  <img alt="Hero background" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2-zahJUYj3lDQ75-PlGBwRLqFxrD1ILOokR7N4HLeQ84BofmCSA8dTmbkihxg7J4gSo1C9-vo4XJmuFo467oWL6OAnGLGdhk1Vzcc1tbwHCeNrHpM9LcIsodfY3wRy-gLn4Ks_bf1gtU33n4rOj7jbUrO9hgjazx-yvPAYRo10x0rMGYRGAYo4DzC5UqFcoQQTyk4XNUPL0PA4tKzV6nbqdsevj5LpnF1OFRrML3H8Xuenn6KF2YVxn8N-Oieibo5httr7C0ApNzc"/>
+  <div class="relative z-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-margin items-center">
+    <div class="text-white space-y-md">
+      <img alt="Electrónica Moya Logo" class="h-16 mb-base bg-white p-2 rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhFRAeTn8_y3slGWYMvgTnECWfqKMtwNjynQyPRCEQ-Ey31uRYcG11IP7gT9O-MfRqke4ZgKlo9bwZt-ucIhWqJBxfYSXjj9TTh4euQLOEK8Y5FNF1tLmQIMBxWPzmkF7gtL6kWx3KSyEVe5mRa9RU6RjQ-dHpiJAPbV_xdtVDqAM-FScoBcFyD2EHyt5xmpRYHAYWfj89mdhK2pB34ZIN3C5oymmd84sQcxZY23qhRPud9elRyrS48HgN94Yyf89A_gqaM9-jbnqo"/>
+      <h1 class="font-display-xl text-display-xl text-white">Tu electricista de confianza en Algeciras</h1>
+      <p class="font-body-lg text-body-lg text-inverse-on-surface max-w-lg">Servicio técnico profesional, instalaciones seguras y mantenimiento eléctrico integral. Garantizamos eficiencia y calidad en cada proyecto.</p>
+      <div class="flex flex-wrap gap-sm pt-base">
+        <a href="tel:+34637161868" class="bg-secondary-container text-primary-container font-button-text text-button-text py-sm px-md rounded border border-surface-variant uppercase hover:bg-secondary-fixed transition-colors active:scale-95 duration-150 flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[20px]">call</span>
+          Llámanos
+        </a>
+        <button onclick="abrirModal()" class="bg-white text-primary-container font-button-text text-button-text py-sm px-md rounded border border-surface-variant uppercase hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+          Pide presupuesto
+        </button>
+        <a href="https://wa.me/34637161868?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" target="_blank" class="bg-[#25D366] text-white font-button-text text-button-text py-sm px-md rounded uppercase hover:bg-[#128C7E] transition-colors active:scale-95 duration-150 flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-xl px-margin bg-background max-w-7xl mx-auto" id="services">
+  <div class="text-center mb-lg space-y-sm">
+    <span class="bg-primary-fixed text-on-primary-fixed px-sm py-xs rounded font-label-bold text-label-bold uppercase tracking-wider inline-block">Nuestros Servicios</span>
+    <h2 class="font-headline-lg text-headline-lg text-primary-container">Soluciones Eléctricas Integrales</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+    <div class="bg-white border border-surface-variant rounded-lg p-md hover:border-primary-container transition-colors group">
+      <div class="w-12 h-12 bg-secondary-container rounded flex items-center justify-center mb-md group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-primary-container text-[28px]">electrical_services</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Instalaciones eléctricas</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant">Diseño y ejecución de instalaciones eléctricas completas para viviendas y locales comerciales, cumpliendo con toda la normativa vigente.</p>
+    </div>
+    <div class="bg-white border border-surface-variant rounded-lg p-md hover:border-primary-container transition-colors group">
+      <div class="w-12 h-12 bg-secondary-container rounded flex items-center justify-center mb-md group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-primary-container text-[28px]">build</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Reparaciones</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant">Solución rápida y eficiente a averías, cortocircuitos y fallos en el sistema eléctrico. Servicio de diagnóstico preciso.</p>
+    </div>
+    <div class="bg-white border border-surface-variant rounded-lg p-md hover:border-primary-container transition-colors group">
+      <div class="w-12 h-12 bg-secondary-container rounded flex items-center justify-center mb-md group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-primary-container text-[28px]">settings_suggest</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Mantenimiento</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant">Programas de mantenimiento preventivo y correctivo para asegurar el funcionamiento óptimo y prolongar la vida útil de sus instalaciones.</p>
+    </div>
+    <div class="bg-white border border-surface-variant rounded-lg p-md hover:border-primary-container transition-colors group">
+      <div class="w-12 h-12 bg-secondary-container rounded flex items-center justify-center mb-md group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-primary-container text-[28px]">smart_toy</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Domótica</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant">Integración de sistemas inteligentes para el control automatizado de iluminación, climatización y seguridad en su hogar o negocio.</p>
+    </div>
+    <div class="bg-white border border-surface-variant rounded-lg p-md hover:border-primary-container transition-colors group">
+      <div class="w-12 h-12 bg-secondary-container rounded flex items-center justify-center mb-md group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-primary-container text-[28px]">verified</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Certificados eléctricos</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant">Emisión de boletines eléctricos y certificados de instalación, asegurando que su red cumple con los estándares legales y de seguridad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="py-xl bg-surface-container" id="reviews">
+  <div class="max-w-7xl mx-auto px-margin">
+    <div class="text-center mb-lg space-y-sm">
+      <span class="bg-primary-fixed text-on-primary-fixed px-sm py-xs rounded font-label-bold text-label-bold uppercase tracking-wider inline-block">Reseñas</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary-container">Lo que dicen nuestros clientes</h2>
+      <div class="flex items-center justify-center gap-xs">
+        <span class="text-secondary-container text-2xl">★★★★★</span>
+        <span class="font-body-md text-on-surface-variant">4.9 de 5 · Más de 80 reseñas en Google</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <!-- Review 1 -->
+      <div class="bg-white rounded-lg p-md border border-surface-variant shadow-sm">
+        <div class="flex items-center gap-sm mb-sm">
+          <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold text-sm">MR</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-on-surface">María Rodríguez</p>
+            <p class="text-xs text-on-surface-variant">Algeciras</p>
+          </div>
+          <span class="ml-auto text-secondary-container text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">"Vinieron el mismo día a reparar un cortocircuito. Muy profesionales, precio justo y dejaron todo limpio. Totalmente recomendados."</p>
+      </div>
+      <!-- Review 2 -->
+      <div class="bg-white rounded-lg p-md border border-surface-variant shadow-sm">
+        <div class="flex items-center gap-sm mb-sm">
+          <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold text-sm">JL</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-on-surface">José Luis García</p>
+            <p class="text-xs text-on-surface-variant">Algeciras</p>
+          </div>
+          <span class="ml-auto text-secondary-container text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">"Instalaron toda la electricidad de mi local en tiempo récord. Trabajo impecable, con certificado y todo en regla. Muy satisfecho."</p>
+      </div>
+      <!-- Review 3 -->
+      <div class="bg-white rounded-lg p-md border border-surface-variant shadow-sm">
+        <div class="flex items-center gap-sm mb-sm">
+          <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold text-sm">AC</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-on-surface">Ana Campos</p>
+            <p class="text-xs text-on-surface-variant">Algeciras</p>
+          </div>
+          <span class="ml-auto text-secondary-container text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">"Servicio excelente. Detectaron una fuga de corriente que llevaba meses sin que nadie pudiera encontrar. Son muy buenos en su trabajo."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ubicación / Google Maps -->
+<section class="py-xl bg-background" id="ubicacion">
+  <div class="max-w-7xl mx-auto px-margin">
+    <div class="text-center mb-lg space-y-sm">
+      <span class="bg-primary-fixed text-on-primary-fixed px-sm py-xs rounded font-label-bold text-label-bold uppercase tracking-wider inline-block">Dónde estamos</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary-container">Nos encontrarás en Algeciras</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant">Atendemos toda la zona de Algeciras y Campo de Gibraltar</p>
+    </div>
+    <div class="rounded-xl overflow-hidden border border-surface-variant shadow-md">
+      <iframe
+        title="Electrónica Moya en Algeciras"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51750.32!2d-5.4546!3d36.1408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0cbd316de81a77%3A0x7b0a3b7d0f0f0f0f!2sAlgeciras%2C%20C%C3%A1diz!5e0!3m2!1ses!2ses!4v1700000000000"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-xl bg-primary-container" id="contact">
+  <div class="max-w-7xl mx-auto px-margin text-center">
+    <h2 class="font-headline-lg text-headline-lg text-white mb-sm">¿Necesitas un electricista ahora?</h2>
+    <p class="font-body-lg text-body-lg text-inverse-on-surface mb-lg">Estamos disponibles todos los días. Llámanos o escríbenos y te respondemos de inmediato.</p>
+    <div class="flex flex-wrap gap-sm justify-center">
+      <a href="tel:+34637161868" class="bg-secondary-container text-primary-container font-button-text text-button-text py-sm px-md rounded uppercase hover:bg-secondary-fixed transition-colors active:scale-95 duration-150 flex items-center gap-xs">
+        <span class="material-symbols-outlined text-[20px]">call</span>
+        637 161 868
+      </a>
+      <a href="https://wa.me/34637161868?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" target="_blank" class="bg-[#25D366] text-white font-button-text text-button-text py-sm px-md rounded uppercase hover:bg-[#128C7E] transition-colors active:scale-95 duration-150 flex items-center gap-xs">
+        <span class="material-symbols-outlined text-[20px]">chat</span>
+        WhatsApp
+      </a>
+      <button onclick="abrirModal()" class="bg-white text-primary-container font-button-text text-button-text py-sm px-md rounded uppercase hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+        Pedir presupuesto
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary-container text-white py-xl border-t border-surface-tint">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 max-w-7xl mx-auto font-body-md">
+    <div>
+      <h4 class="text-xl font-bold text-white mb-sm">Electrónica Moya</h4>
+      <p class="text-gray-300 text-sm">Tu electricista de confianza en Algeciras. Servicio técnico profesional, instalaciones seguras y mantenimiento integral.</p>
+    </div>
+    <div>
+      <h4 class="text-secondary-container font-label-bold text-label-bold mb-sm uppercase">Legal</h4>
+      <ul class="space-y-xs">
+        <li><a class="text-gray-300 hover:text-secondary-container transition-opacity" href="#">Política de privacidad</a></li>
+        <li><a class="text-gray-300 hover:text-secondary-container transition-opacity" href="#">Términos de servicio</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-secondary-container font-label-bold text-label-bold mb-sm uppercase">Contacto</h4>
+      <p class="text-gray-300 text-sm">Algeciras, Cádiz<br/>Tel: <a href="tel:+34637161868" class="hover:text-secondary-container transition-colors">637 161 868</a></p>
+    </div>
+  </div>
+  <div class="mt-lg pt-sm border-t border-surface-tint text-center text-sm text-gray-300 max-w-7xl mx-auto px-8 font-body-md">
+    © 2024 Electrónica Moya. Todos los derechos reservados.
+  </div>
+</footer>
+
+<script>
+  function abrirModal() {
+    document.getElementById('modal-presupuesto').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrarModal() {
+    document.getElementById('modal-presupuesto').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal-presupuesto').addEventListener('click', function(e) {
+    if (e.target === this) cerrarModal();
+  });
+  function enviarFormulario(e) {
+    e.preventDefault();
+    cerrarModal();
+    alert('¡Solicitud enviada! Te contactaremos en breve.');
+  }
+</script>
+
+</body></html>
